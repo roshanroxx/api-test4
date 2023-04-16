@@ -155,7 +155,7 @@ class AnchorDetail(APIView):
     
 
 class BinList(APIView):
-    permission_classes =[IsAuthenticated]
+#    permission_classes =[IsAuthenticated]
     def get(self,request,pk):
         bin = Bin.objects.filter(user_id = pk)
         serializer = BinSerializer(bin , many=True)
@@ -163,7 +163,7 @@ class BinList(APIView):
     
 
 class BinCreate(APIView):
-    permission_classes =[IsAuthenticated]
+ #   permission_classes =[IsAuthenticated]
     def post(self,request):
         serializer = BinSerializer(data=request.data)
         if serializer.is_valid():
@@ -181,21 +181,9 @@ class BinDetailip(generics.ListAPIView):
         if bin_ip is not None:
             queryset = queryset.filter(bin_ip=bin_ip)
         return queryset
-    # def get_queryset(self):
-    #     queryset = Bin.objects.all()
-    #     bin_ip = self.request.query_params.get('bin_ip')
-        
-    #     if bin_ip is not None:
-    #         queryset = queryset.filter(bin_ip=bin_ip)
-        
-    #     serializer = BinSerializer(queryset, many=True)
-    #     serialized_data = serializer.data
-        
-    #     # Return the serialized data as a JSON response
-    #     return Response(serialized_data, status=status.HTTP_200_OK)
 
 class BinDetail(APIView):
-    permission_classes =[IsAuthenticated]
+#    permission_classes =[IsAuthenticated]
     def get_book_by_pk(self,pk):
         try:
             return Bin.objects.get(pk=pk)
