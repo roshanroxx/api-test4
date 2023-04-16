@@ -15,7 +15,7 @@ urlpatterns = [
     path('a/list/' , AnchorList.as_view()),
     path('a/<int:pk>',AnchorDetail.as_view()),
 
-    path('bin/list/' , BinList.as_view()),
+    path('bin/list/<int:pk>' , BinList.as_view()),
     path('bin/ip/' , BinDetailip.as_view()),
     path('bin/' , BinCreate.as_view()),
     path('bin/<int:pk>',BinDetail.as_view()),
