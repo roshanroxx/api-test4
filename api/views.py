@@ -207,7 +207,7 @@ class BinDetail(APIView):
             serializer.save()
             return Response(serializer.data)
         else:
-            Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self,request,pk):
         bin = self.get_book_by_pk(pk)
